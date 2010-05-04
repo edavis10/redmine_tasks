@@ -16,6 +16,8 @@ module RedmineTasks
       dir = "/home/edavis/dev/redmine/plugins/#{plugin_name}"
       if File.exists?(dir)
         directory(dir, plugin_name)
+        # TODO: thor misses .git
+        directory(dir + "/.git", plugin_name + "/.git")
       else
         raise "No such file or directory - #{dir}"
       end
